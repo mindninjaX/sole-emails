@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sole Emails — Preview Playground</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0b0c11;
+  --surface:  #111318;
+  --surface2: #171a22;
+  --border:   #1e2130;
+  --border2:  #252a38;
+  --accent:   #4d4dff;
+  --text:     #dde3f0;
+  --muted:    #505870;
+  --muted2:   #3a4055;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Top bar ─────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 12px 0 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.brand {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  white-space: nowrap;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+.brand em { color: var(--accent); font-style: normal; }
+
+/* template tabs */
+.tabs-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 2px;
+}
+.tabs-wrap::-webkit-scrollbar { display: none; }
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: color .12s, background .12s, border-color .12s;
+  user-select: none;
+  flex-shrink: 0;
+}
+.tab:hover { color: var(--text); }
+.tab.active {
+  color: var(--text);
+  background: var(--surface2);
+  border-color: var(--border2);
+}
+.tab-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity .12s;
+}
+.tab.active .tab-dot { opacity: 1; }
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 7px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  border: 1px dashed var(--border2);
+  flex-shrink: 0;
+  margin-left: 4px;
+  transition: color .12s, border-color .12s;
+}
+.btn-add:hover { color: var(--text); border-color: var(--muted); }
+
+/* right side controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.ctrl-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: color .12s, background .12s, border-color .12s;
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+}
+.ctrl-btn:hover { color: var(--text); background: var(--surface2); }
+.ctrl-btn.active {
+  color: var(--text);
+  background: var(--surface2);
+  border-color: var(--border2);
+}
+
+.sep { width: 1px; height: 18px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+
+/* ── Canvas ──────────────────────────────── */
+.canvas {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px 56px;
+}
+.canvas::-webkit-scrollbar { width: 5px; }
+.canvas::-webkit-scrollbar-track { background: transparent; }
+.canvas::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* view containers */
+.view { display: none; width: 100%; align-items: center; flex-direction: column; }
+.view.active { display: flex; }
+
+/* viewport label */
+.vp-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ── Device frames ───────────────────────── */
+
+/* Desktop */
+.device-desktop {
+  width: 100%;
+  max-width: 900px;
+}
+.chrome-bar {
+  background: #1d1f2b;
+  padding: 9px 14px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chrome-dots { display: flex; gap: 5px; }
+.chrome-dots span { width: 9px; height: 9px; border-radius: 50%; }
+.chrome-dots span:nth-child(1) { background: #ff5f57; }
+.chrome-dots span:nth-child(2) { background: #ffbd2e; }
+.chrome-dots span:nth-child(3) { background: #28c840; }
+.chrome-url {
+  flex: 1;
+  height: 20px;
+  background: #13151e;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 9px;
+  font-size: 10px;
+  color: var(--muted);
+  font-family: monospace;
+  letter-spacing: .2px;
+}
+.email-client-bar {
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.email-client-bar.dark-ec { border-bottom-color: rgba(255,255,255,.06); }
+.ec-subject {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0d1424;
+  margin-bottom: 3px;
+  font-family: -apple-system, sans-serif;
+}
+.ec-subject.dark-text { color: #dde4f0; }
+.ec-meta {
+  font-size: 10.5px;
+  color: #8a9ab5;
+  font-family: -apple-system, sans-serif;
+}
+.frame-bg { background: #f0f2f5; }
+.frame-bg.dark-frame { background: #0e1015; }
+.desktop-body {
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 48px rgba(0,0,0,.55);
+}
+
+/* Tablet */
+.device-tablet {
+  width: 768px;
+  max-width: calc(100vw - 40px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 10px #181c28,
+    0 0 0 11px #222638,
+    0 6px 60px rgba(0,0,0,.65);
+  margin: 8px;
+}
+
+/* Mobile */
+.device-mobile {
+  width: 393px;
+  max-width: calc(100vw - 40px);
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 0 0 12px #181c28,
+    0 0 0 13px #222638,
+    0 8px 70px rgba(0,0,0,.7);
+  margin: 8px;
+}
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 114px;
+  height: 30px;
+  background: #181c28;
+  border-radius: 0 0 20px 20px;
+  z-index: 20;
+  pointer-events: none;
+}
+.phone-bar {
+  height: 12px;
+  background: #0d0f17;
+  flex-shrink: 0;
+}
+
+/* iframe base */
+iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Split view */
+.split-grid {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1140px;
+}
+.split-col { display: flex; flex-direction: column; align-items: center; }
+.split-col.flex-mobile { flex: 0 0 393px; max-width: calc(50vw - 30px); }
+.split-col.flex-tablet { flex: 1; }
+.split-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ── Status bar ──────────────────────────── */
+.statusbar {
+  height: 34px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.status-pill {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.status-pill.accent { background: #13134a; border-color: #2a2a6a; color: #8080ff; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="brand">Sole <em>Emails</em></div>
+
+  <div class="tabs-wrap" id="tabsWrap">
+    <div class="tab active" data-key="priority-access">
+      <span class="tab-dot"></span>
+      Priority Access
+    </div>
+  </div>
+
+  <button class="btn-add" title="Add template" onclick="promptAddTemplate()">+</button>
+
+  <div class="controls">
+    <div class="sep"></div>
+    <button class="ctrl-btn active" id="btn-desktop" onclick="setView('desktop')">
+      <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><rect x=".5" y=".5" width="12" height="7.5" rx="1.5" stroke="currentColor"/><path d="M3.5 10h6M6.5 8v2" stroke="currentColor" stroke-linecap="round"/></svg>
+      Desktop
+    </button>
+    <button class="ctrl-btn" id="btn-tablet" onclick="setView('tablet')">
+      <svg width="9" height="12" viewBox="0 0 9 12" fill="none"><rect x=".5" y=".5" width="8" height="11" rx="1.5" stroke="currentColor"/><circle cx="4.5" cy="10" r=".7" fill="currentColor"/></svg>
+      Tablet
+    </button>
+    <button class="ctrl-btn" id="btn-mobile" onclick="setView('mobile')">
+      <svg width="7" height="12" viewBox="0 0 7 12" fill="none"><rect x=".5" y=".5" width="6" height="11" rx="1.5" stroke="currentColor"/><circle cx="3.5" cy="10" r=".7" fill="currentColor"/></svg>
+      Mobile
+    </button>
+    <button class="ctrl-btn" id="btn-split" onclick="setView('split')">
+      <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><rect x=".5" y=".5" width="5.5" height="9" rx="1" stroke="currentColor"/><rect x="7" y=".5" width="5.5" height="9" rx="1" stroke="currentColor"/></svg>
+      Split
+    </button>
+    <div class="sep"></div>
+    <button class="ctrl-btn" id="btnDark" onclick="toggleDark()">
+      <svg id="iconDark" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v1M6 10v1M1 6h1M10 6h1M2.9 2.9l.7.7M8.4 8.4l.7.7M2.9 9.1l.7-.7M8.4 3.6l.7-.7" stroke="currentColor" stroke-linecap="round"/><circle cx="6" cy="6" r="2.2" stroke="currentColor"/></svg>
+      Dark
+    </button>
+  </div>
+</div>
+
+<!-- CANVAS -->
+<div class="canvas" id="canvas">
+
+  <!-- DESKTOP -->
+  <div class="view active" id="view-desktop">
+    <div class="vp-label">Desktop — 900px</div>
+    <div class="device-desktop">
+      <div class="chrome-bar">
+        <div class="chrome-dots"><span></span><span></span><span></span></div>
+        <div class="chrome-url">mail.google.com — Inbox</div>
+      </div>
+      <div class="desktop-body frame-bg" id="fbg-desktop">
+        <div class="email-client-bar" id="ecb-desktop">
+          <div class="ec-subject" id="ecs-desktop">Sole Practice Manager — Priority Access</div>
+          <div class="ec-meta">Johann Oberholzer &lt;hello@soleapp.com.au&gt; · to me</div>
+        </div>
+        <iframe id="if-desktop" title="Desktop preview" style="height:640px"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLET -->
+  <div class="view" id="view-tablet">
+    <div class="vp-label">Tablet — 768px</div>
+    <div class="device-tablet frame-bg" id="fbg-tablet">
+      <div class="email-client-bar" id="ecb-tablet">
+        <div class="ec-subject" id="ecs-tablet">Sole Practice Manager — Priority Access</div>
+        <div class="ec-meta">Johann Oberholzer · to me</div>
+      </div>
+      <iframe id="if-tablet" title="Tablet preview" style="height:660px"></iframe>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="view" id="view-mobile">
+    <div class="vp-label">Mobile — 393px</div>
+    <div class="device-mobile frame-bg" id="fbg-mobile">
+      <div class="phone-notch"></div>
+      <div class="phone-bar"></div>
+      <div class="email-client-bar" id="ecb-mobile" style="padding-top:16px">
+        <div class="ec-subject" id="ecs-mobile" style="font-size:12px">Sole Practice Manager — Priority Access</div>
+        <div class="ec-meta">Johann · to me</div>
+      </div>
+      <iframe id="if-mobile" title="Mobile preview" style="height:680px"></iframe>
+    </div>
+  </div>
+
+  <!-- SPLIT -->
+  <div class="view" id="view-split">
+    <div class="vp-label">Split view</div>
+    <div class="split-grid">
+      <div class="split-col flex-mobile">
+        <div class="split-label">Mobile · 393px</div>
+        <div class="device-mobile frame-bg" id="fbg-split-m">
+          <div class="phone-notch"></div>
+          <div class="phone-bar"></div>
+          <div class="email-client-bar" id="ecb-split-m" style="padding-top:16px">
+            <div class="ec-subject" id="ecs-split-m" style="font-size:12px">Sole Practice Manager — Priority Access</div>
+            <div class="ec-meta">Johann · to me</div>
+          </div>
+          <iframe id="if-split-m" title="Split mobile" style="height:660px"></iframe>
+        </div>
+      </div>
+      <div class="split-col flex-tablet">
+        <div class="split-label">Tablet · 768px</div>
+        <div class="device-tablet frame-bg" id="fbg-split-t">
+          <div class="email-client-bar" id="ecb-split-t">
+            <div class="ec-subject" id="ecs-split-t">Sole Practice Manager — Priority Access</div>
+            <div class="ec-meta">Johann Oberholzer · to me</div>
+          </div>
+          <iframe id="if-split-t" title="Split tablet" style="height:660px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- STATUS BAR -->
+<div class="statusbar">
+  <span id="stat-view">Desktop</span>
+  <span class="status-pill accent" id="stat-mode">Light</span>
+  <span class="status-pill" id="stat-count">1 template</span>
+</div>
+
+<script>
+// ─── Config ──────────────────────────────────────────────────────────────────
+const TEMPLATES = {
+  'priority-access': { label: 'Priority Access', file: 'email-template.html' }
+};
+// To add a new template, drop its HTML file into this directory and add an entry here:
+// 'my-new-template': { label: 'My Template', file: 'my-template.html' }
+
+// ─── State ───────────────────────────────────────────────────────────────────
+let activeKey   = 'priority-access';
+let currentView = 'desktop';
+let darkMode    = false;
+let blobUrls    = {};  // iframe-id → blob URL (for cleanup)
+
+// iframes and their intended viewport widths
+const IFRAMES = {
+  'if-desktop':  null,     // null = use device width, no override
+  'if-tablet':   768,
+  'if-mobile':   393,
+  'if-split-m':  393,
+  'if-split-t':  768,
+};
+
+// frame background + email chrome elements to toggle for dark mode
+const DARK_TARGETS = {
+  frames:  ['fbg-desktop','fbg-tablet','fbg-mobile','fbg-split-m','fbg-split-t'],
+  bars:    ['ecb-desktop','ecb-tablet','ecb-mobile','ecb-split-m','ecb-split-t'],
+  subjects:['ecs-desktop','ecs-tablet','ecs-mobile','ecs-split-m','ecs-split-t'],
+};
+
+// ─── Load template ───────────────────────────────────────────────────────────
+async function loadTemplate(key) {
+  const tpl = TEMPLATES[key];
+  if (!tpl) return;
+
+  let html = await fetch(tpl.file + '?_=' + Date.now())
+    .then(r => r.text())
+    .catch(() => `<body style="font-family:sans-serif;padding:40px;color:red">
+      <b>Could not load ${tpl.file}</b><br>Make sure the file is in the same directory as playground.html.
+    </body>`);
+
+  // Replace merge tags with preview values
+  html = html
+    .replace(/\{\{tidycal_link\}\}/g,                   '#')
+    .replace(/\{\{contact\.first_name\}\}/g,            'Sarah')
+    .replace(/\{\{custom_values\.founders_signature\}\}/g, 'Co-founder, Sole Practice Manager');
+
+  // Always start with light mode; the Dark toggle re-loads with dark mode active
+  html = forceLightMode(html);
+
+  // Load each iframe
+  for (const [ifId, vpWidth] of Object.entries(IFRAMES)) {
+    const processed = vpWidth ? overrideViewport(html, vpWidth) : html;
+    loadIntoIframe(ifId, processed);
+  }
+}
+
+// Override the <meta name="viewport"> so media queries fire at the correct
+// simulated device width, not the physical screen width.
+function overrideViewport(html, width) {
+  return html.replace(
+    /<meta[^>]*name=["']viewport["'][^>]*\/?>/i,
+    `<meta name="viewport" content="width=${width},initial-scale=1"/>`
+  );
+}
+
+// Force the email to render in light mode regardless of the OS preference.
+// The email's @media (prefers-color-scheme: dark) rules are appropriate for
+// real email clients, but in the playground we want a neutral light preview
+// unless the user explicitly clicks the Dark toggle.
+function forceLightMode(html) {
+  // Replace color-scheme meta tags so the browser treats this doc as light-only
+  html = html.replace(
+    /<meta[^>]*name=["']color-scheme["'][^>]*\/?>/i,
+    '<meta name="color-scheme" content="only light"/>'
+  );
+  html = html.replace(
+    /<meta[^>]*name=["']supported-color-schemes["'][^>]*\/?>/i,
+    '<meta name="supported-color-schemes" content="light"/>'
+  );
+  // Belt-and-suspenders: inject a CSS override before </head>
+  html = html.replace(
+    /<\/head>/i,
+    '<style>:root{color-scheme:only light!important}' +
+    '@media(prefers-color-scheme:dark){' +
+    'body,table,td,p,a,span,h1,h2,h3{color:inherit}' +
+    '}</style></head>'
+  );
+  return html;
+}
+
+// Using Blob URLs (vs doc.write) ensures the browser scopes the iframe's
+// layout viewport to its CSS width, so responsive breakpoints fire correctly.
+function loadIntoIframe(ifId, html) {
+  const iframe = document.getElementById(ifId);
+  if (!iframe) return;
+
+  // Revoke previous blob URL to avoid memory leaks
+  if (blobUrls[ifId]) URL.revokeObjectURL(blobUrls[ifId]);
+
+  const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  blobUrls[ifId] = url;
+  iframe.src = url;
+}
+
+// ─── View switching ───────────────────────────────────────────────────────────
+function setView(v) {
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.ctrl-btn[id^="btn-"]').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-'  + v)?.classList.add('active');
+  document.getElementById('btn-'   + v)?.classList.add('active');
+  currentView = v;
+  document.getElementById('stat-view').textContent =
+    { desktop:'Desktop', tablet:'Tablet', mobile:'Mobile', split:'Split' }[v];
+}
+
+// ─── Dark mode toggle ─────────────────────────────────────────────────────────
+function toggleDark() {
+  darkMode = !darkMode;
+
+  document.getElementById('btnDark').classList.toggle('active', darkMode);
+  document.getElementById('stat-mode').textContent = darkMode ? 'Dark' : 'Light';
+  document.getElementById('stat-mode').classList.toggle('accent', !darkMode);
+
+  DARK_TARGETS.frames.forEach(id => {
+    document.getElementById(id)?.classList.toggle('dark-frame', darkMode);
+  });
+  DARK_TARGETS.bars.forEach(id => {
+    document.getElementById(id)?.classList.toggle('dark-ec', darkMode);
+  });
+  DARK_TARGETS.subjects.forEach(id => {
+    document.getElementById(id)?.classList.toggle('dark-text', darkMode);
+  });
+
+  // Re-load templates: dark mode needs prefers-color-scheme:dark to be honoured,
+  // light mode needs it suppressed. Reloading is the only reliable way to do this.
+  loadTemplate(activeKey);
+}
+
+// Allow forceLightMode to be bypassed when dark mode is active
+const _originalForceLightMode = forceLightMode;
+function forceLightMode(html) {
+  return darkMode ? html : _originalForceLightMode(html);
+}
+
+// ─── Tab management ───────────────────────────────────────────────────────────
+function renderTabs() {
+  const wrap = document.getElementById('tabsWrap');
+  wrap.querySelectorAll('.tab').forEach(t => t.remove());
+  for (const [key, tpl] of Object.entries(TEMPLATES)) {
+    const el = document.createElement('div');
+    el.className = 'tab' + (key === activeKey ? ' active' : '');
+    el.dataset.key = key;
+    el.innerHTML = `<span class="tab-dot"></span>${tpl.label}`;
+    el.onclick = () => {
+      activeKey = key;
+      renderTabs();
+      loadTemplate(key);
+    };
+    wrap.insertBefore(el, wrap.querySelector('.btn-add'));
+  }
+  document.getElementById('stat-count').textContent =
+    Object.keys(TEMPLATES).length + ' template' +
+    (Object.keys(TEMPLATES).length > 1 ? 's' : '');
+}
+
+function promptAddTemplate() {
+  alert(
+    'To add a new template:\n\n' +
+    '1. Drop your email HTML file into this directory\n' +
+    '2. Open playground.html in a code editor\n' +
+    '3. Add an entry to the TEMPLATES object at the top of the <script> block:\n\n' +
+    "  'my-key': { label: 'My Template', file: 'my-email.html' }"
+  );
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+renderTabs();
+loadTemplate(activeKey);
+</script>
+</body>
+</html>
