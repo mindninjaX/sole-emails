@@ -1,13 +1,13 @@
 # Sole Emails
 
-Repository of transactional and marketing email templates for the Sole Practice Platform, plus a local playground for previewing them across Desktop / Tablet / Mobile viewports simultaneously.
+Repository of transactional and marketing email templates for the Sole Practice Platform, plus a local playground for previewing them across Desktop and Mobile viewports simultaneously.
 
 ## Layout
 
 | Path | Purpose |
 |---|---|
 | `email-template.html` | Priority Access email — the only template so far |
-| `playground.html` | Multi-viewport preview UI (Desktop · Tablet · Mobile, scroll-synced) |
+| `playground.html` | Multi-viewport preview UI (Desktop · Mobile, scroll-synced) |
 | `BRAND.md` | Canonical color palette — **always reference this for any visual change** |
 | `.github/workflows/pages.yml` | Deploys `playground.html` + templates to GitHub Pages |
 
@@ -25,6 +25,7 @@ The playground polls the template's `Last-Modified` header every 1.5s and auto-r
 
 These are **email**, not web. Quirks that look weird in a web codebase are correct here:
 
+- **Plus Jakarta Sans only.** No serif fonts (no Instrument Serif, no Georgia, no italic-serif accents). Emphasis comes from weight + colour, never from a typeface swap. See BRAND.md → Typography.
 - **Table-based layout, inline styles.** Gmail/Outlook/Apple Mail require it. Resist the urge to convert to semantic HTML or external stylesheets.
 - **No CSS variables in inline styles** — Outlook strips them. Use the literal hex values from `BRAND.md`.
 - **Light only.** The `<meta name="color-scheme">` is `only light`. There is no dark-mode block — Apple Mail / Outlook are told not to auto-invert.

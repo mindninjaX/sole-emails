@@ -287,18 +287,6 @@ body {
 .scroll-area::-webkit-scrollbar-track { background: transparent; }
 .scroll-area::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
 
-/* Tablet */
-.device-tablet {
-  width: 768px;
-  border-radius: 22px;
-  padding: 10px;
-  background: #FFFFFF;
-  box-shadow:
-    0 0 0 1px var(--border),
-    0 8px 32px rgba(15,17,23,.08);
-}
-.device-tablet .scroll-area { border-radius: 12px; }
-
 /* Mobile */
 .device-mobile {
   width: 393px;
@@ -404,20 +392,6 @@ iframe {
       </div>
     </div>
 
-    <!-- TABLET -->
-    <div class="col">
-      <div class="col-label"><span class="name">Tablet</span><span class="px">768px</span></div>
-      <div class="device device-tablet">
-        <div class="email-client-bar" id="ecb-tablet">
-          <div class="ec-subject" id="ecs-tablet">Sole Practice Manager — Priority Access</div>
-          <div class="ec-meta" id="ecm-tablet">Johann Oberholzer · to me</div>
-        </div>
-        <div class="scroll-area" data-sync="true">
-          <iframe id="if-tablet" title="Tablet preview"></iframe>
-        </div>
-      </div>
-    </div>
-
     <!-- MOBILE -->
     <div class="col">
       <div class="col-label"><span class="name">Mobile</span><span class="px">393px</span></div>
@@ -441,7 +415,7 @@ iframe {
   <span class="status-pill accent" id="stat-mode">Light email</span>
   <span class="status-pill" id="stat-count">1 template</span>
   <div class="spacer"></div>
-  <span style="font-size:10.5px;color:var(--muted2)">Scroll any device — all three sync</span>
+  <span style="font-size:10.5px;color:var(--muted2)">Scroll either device — both sync</span>
 </div>
 
 <script>
@@ -455,13 +429,12 @@ const TEMPLATES = {
 
 const IFRAMES = {
   'if-mobile':  { viewport: 393 },
-  'if-tablet':  { viewport: 768 },
   'if-desktop': { viewport: null }  // null = use natural device width
 };
 
 const DARK_TARGETS = {
-  bars:    ['ecb-mobile','ecb-tablet','ecb-desktop'],
-  texts:   ['ecs-mobile','ecs-tablet','ecs-desktop','ecm-mobile','ecm-tablet','ecm-desktop'],
+  bars:    ['ecb-mobile','ecb-desktop'],
+  texts:   ['ecs-mobile','ecs-desktop','ecm-mobile','ecm-desktop'],
 };
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -496,7 +469,7 @@ async function loadTemplate(key) {
   // Replace merge tags with preview values
   html = html
     .replace(/\{\{tidycal_link\}\}/g,                       '#')
-    .replace(/\{\{video_link\}\}/g,                         '#')
+    .replace(/\{\{video_link\}\}/g,                         'https://www.youtube.com/watch?v=yg6JAxNp9nw')
     .replace(/\{\{contact\.first_name\}\}/g,                'Sarah')
     .replace(/\{\{custom_values\.founders_signature\}\}/g,  'Founder, Sole &amp; SPM');
 
