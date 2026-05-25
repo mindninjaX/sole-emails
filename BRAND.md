@@ -80,3 +80,7 @@ The canonical color tokens for any Sole-branded design work (emails, web, market
 - **Marketing orange** `#F97316` is reserved for small marketing flourishes (tags, accent dots, eyebrows on hype sections). It is not a UI color — never use it for buttons, dividers, or backgrounds.
 - **Text on white**: `#0F1117` for headings, `#1F2937` for body, `#6B7280` for muted captions.
 - **Text on navy**: `#FFFFFF` for headings, `#BFC4FF` (brand-200) for body, `#9CA3FF` (brand-300) for muted/detail.
+
+## Typography
+
+**Plus Jakarta Sans only.** No serif fonts in any Sole-branded surface (email, web, marketing). Emphasis comes from weight (800 for headings, 300 for light subheadings, 700 for body strong) and colour (`#4D4DFF` for accent words), not from italic-serif treatments. Stack: `'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif`.
