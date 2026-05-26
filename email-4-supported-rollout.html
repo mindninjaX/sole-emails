@@ -32,7 +32,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 @media only screen and (max-width:640px){
   .wrap{padding:14px 8px!important}
   .h-td{padding:32px 20px 34px!important}
-  .b-sec{padding:0 18px!important}
+  .b-sec{padding-left:18px!important;padding-right:18px!important}
   .b-sec-t{padding:26px 18px 0!important}
   .b-sec-tb{padding:26px 18px!important}
   .b-sec-last{padding:24px 18px 30px!important}
@@ -58,18 +58,20 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   /* Eyebrow pill: tighten so it doesn't tower over the heading on mobile */
   .eyebrow-pill{padding:6px 10px 7px!important;font-size:9px!important;letter-spacing:1.4px!important}
 
-  /* Closing CTA two-button stack */
+  /* Closing CTA two-button stack: each button-td keeps its inline padding */
   .cta-buttons{width:100%!important}
-  .cta-buttons td{display:block!important;width:100%!important;padding:6px 0!important;text-align:center!important}
-  .cta-buttons td a{display:block!important;width:auto!important;text-align:center!important;white-space:normal!important}
+  .cta-buttons td{display:block!important;width:100%!important;text-align:center!important;box-sizing:border-box!important}
+  .cta-buttons .cta-gap{height:10px!important;line-height:10px!important;padding:0!important;font-size:0!important}
+  .cta-buttons td a,.cta-buttons td span{display:inline-block!important;text-align:center!important;white-space:normal!important}
 
-  /* End-to-end flow / rollout flow / view cards / chip grid: stack to 1 col */
+  /* End-to-end flow / view cards / chip grid: stack to 1 col */
   .pipe-step,
-  .roll-step,
   .pcat-col,
   .ben-col,
   .view-col,
   .chip-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px 0!important;margin:0 0 4px 0!important}
+  /* Rollout steps stay 2-col on mobile (restructured to 3 rows × 2 cols) */
+  .roll-step{height:auto!important;padding-bottom:10px!important}
   .pipe-arrow{display:none!important}
   .pcat-cell{height:auto!important}
 
@@ -82,8 +84,8 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   /* Product screenshot fills the card on mobile */
   img.product-shot{width:100%!important;max-width:100%!important;height:auto!important;display:block!important}
 
-  /* Video cell: hold 16:9 aspect ratio on every viewport */
-  .video-cell{height:auto!important;aspect-ratio:16/9!important;background-size:cover!important;background-position:center center!important}
+  /* Video cell: fixed mobile height so the YouTube thumbnail doesn't collapse */
+  .video-cell{height:200px!important;background-size:cover!important;background-position:center center!important}
 
   /* Footer: let social icons and nav wrap and centre */
   .f-td table{width:100%!important}
@@ -101,7 +103,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   .mission-h{font-size:20px!important}
   .feat-pct{font-size:26px!important}
   .h-td{padding:28px 18px 30px!important}
-  .b-sec{padding:0 16px!important}
+  .b-sec{padding-left:16px!important;padding-right:16px!important}
   .b-sec-t{padding:24px 16px 0!important}
   .b-sec-last{padding:22px 16px 28px!important}
 }
@@ -190,54 +192,56 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 28px;font-family:'Plus Jakarta Sans',Arial,sans-serif">This is also the right time to get systems, workflow and capacity in order. Especially now that KYC compliance is mandatory from 1 July.</p>
 </td></tr>
 
-<!-- Rollout steps, 6 steps in 2 rows × 3 -->
+<!-- Rollout steps, 6 steps in 3 rows × 2 -->
 <tr><td class="b-sec" style="padding:0 48px 32px">
   <p class="eyebrow" style="color:#4D4DFF;margin:0 0 10px;font-family:'Plus Jakarta Sans',Arial,sans-serif">How the rollout works</p>
   <h3 class="sec-h" style="font-size:24px;font-weight:800;color:#0F1117;letter-spacing:-0.5px;line-height:1.22;margin:0 0 22px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Six steps. Done with you, not at you.</h3>
 
-  <!-- Row 1 -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:10px"><tr>
-    <td class="roll-step" width="33%" valign="top" style="padding:0 5px 0 0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:90px">
-        <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F50D;</p>
-        <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Discovery</p>
-      </td></tr></table>
-    </td>
-    <td class="roll-step" width="34%" valign="top" style="padding:0 5px">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:90px">
-        <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x2699;&#xFE0F;</p>
-        <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Setup</p>
-      </td></tr></table>
-    </td>
-    <td class="roll-step" width="33%" valign="top" style="padding:0 0 0 5px">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:90px">
-        <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F5FA;&#xFE0F;</p>
-        <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Workflow mapping</p>
-      </td></tr></table>
-    </td>
-  </tr></table>
-
-  <!-- Row 2 -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-    <td class="roll-step" width="33%" valign="top" style="padding:0 5px 0 0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:90px">
-        <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F393;</p>
-        <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Team training</p>
-      </td></tr></table>
-    </td>
-    <td class="roll-step" width="34%" valign="top" style="padding:0 5px">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:90px">
-        <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F680;</p>
-        <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Rollout</p>
-      </td></tr></table>
-    </td>
-    <td class="roll-step" width="33%" valign="top" style="padding:0 0 0 5px">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:90px">
-        <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4DE;</p>
-        <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Support calls</p>
-      </td></tr></table>
-    </td>
-  </tr></table>
+  <!-- 3 rows × 2 cols: stays 2-col on mobile, 2-col on desktop -->
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+    <tr>
+      <td class="roll-step" width="50%" valign="top" style="padding:0 5px 10px 0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:96px">
+          <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F50D;</p>
+          <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Discovery</p>
+        </td></tr></table>
+      </td>
+      <td class="roll-step" width="50%" valign="top" style="padding:0 0 10px 5px">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:96px">
+          <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x2699;&#xFE0F;</p>
+          <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Setup</p>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td class="roll-step" width="50%" valign="top" style="padding:0 5px 10px 0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:96px">
+          <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F5FA;&#xFE0F;</p>
+          <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Workflow mapping</p>
+        </td></tr></table>
+      </td>
+      <td class="roll-step" width="50%" valign="top" style="padding:0 0 10px 5px">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:96px">
+          <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F393;</p>
+          <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Team training</p>
+        </td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td class="roll-step" width="50%" valign="top" style="padding:0 5px 0 0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:96px">
+          <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F680;</p>
+          <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Rollout</p>
+        </td></tr></table>
+      </td>
+      <td class="roll-step" width="50%" valign="top" style="padding:0 0 0 5px">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #DDE0FF;border-radius:12px"><tr><td valign="top" style="padding:16px 14px;height:96px">
+          <p style="font-size:20px;line-height:1;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4DE;</p>
+          <p style="font-size:14.5px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Support calls</p>
+        </td></tr></table>
+      </td>
+    </tr>
+  </table>
 </td></tr>
 
 <!-- Offer block -->
@@ -334,12 +338,9 @@ h1,h2,h3,h4,p{margin:0;padding:0}
       <td valign="middle" style="background-color:#FFFFFF;border-radius:12px;padding:14px 26px;mso-padding-alt:14px 26px">
         <a href="https://api.leadconnectorhq.com/widget/bookings/spm-pre-release" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#1E1B4B;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#1E1B4B"><![endif]-->Book a June discovery call &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
       </td>
-      <td valign="middle" style="padding-left:10px">
-        <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-          <td valign="middle" style="background-color:rgba(255,255,255,0.06);border-radius:12px;border:1px solid #4D4DFF;padding:13px 24px;mso-padding-alt:13px 24px">
-            <a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#FFFFFF;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#FFFFFF"><![endif]-->Learn more<!--[if mso]></font><![endif]--></a>
-          </td>
-        </tr></table>
+      <td class="cta-gap" width="10" style="width:10px;font-size:0;line-height:0">&nbsp;</td>
+      <td valign="middle" style="background-color:rgba(255,255,255,0.06);border-radius:12px;border:1px solid #4D4DFF;padding:13px 24px;mso-padding-alt:13px 24px">
+        <a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#FFFFFF;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#FFFFFF"><![endif]-->Learn more<!--[if mso]></font><![endif]--></a>
       </td>
     </tr></table>
 
