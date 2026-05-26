@@ -18,11 +18,11 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 /* ---- ≤640px (tablet + mobile) ----------------------------------------- */
 @media only screen and (max-width:640px){
   .wrap{padding:14px 8px!important}
-  .h-td{padding:34px 22px 36px!important}
-  .b-sec{padding:0 20px!important}
-  .b-sec-t{padding:28px 20px 0!important}
-  .b-sec-tb{padding:28px 20px!important}
-  .b-sec-last{padding:26px 20px 32px!important}
+  .h-td{padding:32px 20px 34px!important}
+  .b-sec{padding:0 18px!important}
+  .b-sec-t{padding:26px 18px 0!important}
+  .b-sec-tb{padding:26px 18px!important}
+  .b-sec-last{padding:24px 18px 30px!important}
   .f-td{padding:26px 16px 16px!important}
   .h1{font-size:26px!important;letter-spacing:-0.4px!important;line-height:1.1!important}
   .h1b{font-size:24px!important;line-height:1.18!important;letter-spacing:-0.4px!important}
@@ -34,12 +34,21 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   .feat-pct{font-size:30px!important;letter-spacing:-1.0px!important}
   .ben-row td{padding-top:10px!important;padding-bottom:10px!important}
 
-  /* Hero CTA stack on mobile */
-  .hero-cta-row td{display:block!important;width:100%!important;padding:0 0 14px!important}
-  .hero-cta-row .hero-btn{display:inline-block!important}
+  /* Hero CTA: stack with full-width primary button */
+  .hero-cta-row{width:100%!important}
+  .hero-cta-row td{display:block!important;width:100%!important;padding:0 0 12px!important;text-align:left!important}
+  .hero-cta-row td[style*="padding-left"]{padding-left:0!important}
+  .hero-cta-row .hero-btn{display:block!important;width:100%!important}
+  .hero-cta-row .hero-btn td{display:block!important;width:auto!important;padding:14px 20px!important;text-align:center!important}
+  .hero-cta-row .hero-btn a{display:block!important;white-space:normal!important;text-align:center!important}
+
+  /* Eyebrow pill: tighten so it doesn't tower over the heading on mobile */
+  .eyebrow-pill{padding:6px 10px 7px!important;font-size:9px!important;letter-spacing:1.4px!important}
 
   /* Closing CTA two-button stack */
-  .cta-buttons td{display:block!important;width:100%!important;padding:6px 0!important}
+  .cta-buttons{width:100%!important}
+  .cta-buttons td{display:block!important;width:100%!important;padding:6px 0!important;text-align:center!important}
+  .cta-buttons td a{display:block!important;width:auto!important;text-align:center!important;white-space:normal!important}
 
   /* End-to-end flow / rollout flow / view cards / chip grid: stack to 1 col */
   .pipe-step,
@@ -47,28 +56,39 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   .pcat-col,
   .ben-col,
   .view-col,
-  .chip-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px!important}
+  .chip-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px 0!important;margin:0 0 4px 0!important}
   .pipe-arrow{display:none!important}
   .pcat-cell{height:auto!important}
 
   /* Pain list + questions list */
   .pain-row td{font-size:13.5px!important}
+  .pain-row td:first-child{width:24px!important;padding-right:4px!important}
+  .pain-row td:nth-child(2){width:38px!important;padding-right:8px!important}
   .qrow td{font-size:13.5px!important}
 
-  /* Video cell */
-  .video-cell{height:200px!important}
+  /* Product screenshot fills the card on mobile */
+  img.product-shot{width:100%!important;max-width:100%!important;height:auto!important;display:block!important}
+
+  /* Video cell: hold 16:9 aspect ratio on every viewport */
+  .video-cell{height:auto!important;aspect-ratio:16/9!important;background-size:cover!important;background-position:center center!important}
+
+  /* Footer: let social icons and nav wrap and centre */
+  .f-td table{width:100%!important}
+  .f-td .f-soc{width:100%!important;text-align:center!important}
+  .f-td .f-soc td{padding:0 6px!important;display:inline-block!important}
+  .f-td .f-nav{display:block!important;width:100%!important;text-align:center!important;padding:10px 0 0!important}
+  .f-td .f-nav td{border:0!important;padding:4px 8px!important;display:inline-block!important}
 }
 
 /* ---- ≤420px (small mobile) -------------------------------------------- */
 @media only screen and (max-width:420px){
-  .h1{font-size:23px!important}
-  .h1b{font-size:21px!important}
+  .h1{font-size:22px!important}
+  .h1b{font-size:20px!important}
   .sec-h{font-size:20px!important}
   .mission-h{font-size:20px!important}
   .feat-pct{font-size:26px!important}
-  .h-td{padding:30px 20px 34px!important}
-  .b-sec{padding:0 18px!important}
-  .b-sec-t{padding:26px 18px 0!important}
-  .b-sec-last{padding:24px 18px 30px!important}
-  .video-cell{height:170px!important}
+  .h-td{padding:28px 18px 30px!important}
+  .b-sec{padding:0 16px!important}
+  .b-sec-t{padding:24px 16px 0!important}
+  .b-sec-last{padding:22px 16px 28px!important}
 }

@@ -31,11 +31,11 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 /* ---- ≤640px (tablet + mobile) ----------------------------------------- */
 @media only screen and (max-width:640px){
   .wrap{padding:14px 8px!important}
-  .h-td{padding:34px 22px 36px!important}
-  .b-sec{padding:0 20px!important}
-  .b-sec-t{padding:28px 20px 0!important}
-  .b-sec-tb{padding:28px 20px!important}
-  .b-sec-last{padding:26px 20px 32px!important}
+  .h-td{padding:32px 20px 34px!important}
+  .b-sec{padding:0 18px!important}
+  .b-sec-t{padding:26px 18px 0!important}
+  .b-sec-tb{padding:26px 18px!important}
+  .b-sec-last{padding:24px 18px 30px!important}
   .f-td{padding:26px 16px 16px!important}
   .h1{font-size:26px!important;letter-spacing:-0.4px!important;line-height:1.1!important}
   .h1b{font-size:24px!important;line-height:1.18!important;letter-spacing:-0.4px!important}
@@ -47,12 +47,21 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   .feat-pct{font-size:30px!important;letter-spacing:-1.0px!important}
   .ben-row td{padding-top:10px!important;padding-bottom:10px!important}
 
-  /* Hero CTA stack on mobile */
-  .hero-cta-row td{display:block!important;width:100%!important;padding:0 0 14px!important}
-  .hero-cta-row .hero-btn{display:inline-block!important}
+  /* Hero CTA: stack with full-width primary button */
+  .hero-cta-row{width:100%!important}
+  .hero-cta-row td{display:block!important;width:100%!important;padding:0 0 12px!important;text-align:left!important}
+  .hero-cta-row td[style*="padding-left"]{padding-left:0!important}
+  .hero-cta-row .hero-btn{display:block!important;width:100%!important}
+  .hero-cta-row .hero-btn td{display:block!important;width:auto!important;padding:14px 20px!important;text-align:center!important}
+  .hero-cta-row .hero-btn a{display:block!important;white-space:normal!important;text-align:center!important}
+
+  /* Eyebrow pill: tighten so it doesn't tower over the heading on mobile */
+  .eyebrow-pill{padding:6px 10px 7px!important;font-size:9px!important;letter-spacing:1.4px!important}
 
   /* Closing CTA two-button stack */
-  .cta-buttons td{display:block!important;width:100%!important;padding:6px 0!important}
+  .cta-buttons{width:100%!important}
+  .cta-buttons td{display:block!important;width:100%!important;padding:6px 0!important;text-align:center!important}
+  .cta-buttons td a{display:block!important;width:auto!important;text-align:center!important;white-space:normal!important}
 
   /* End-to-end flow / rollout flow / view cards / chip grid: stack to 1 col */
   .pipe-step,
@@ -60,30 +69,41 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   .pcat-col,
   .ben-col,
   .view-col,
-  .chip-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px!important}
+  .chip-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px 0!important;margin:0 0 4px 0!important}
   .pipe-arrow{display:none!important}
   .pcat-cell{height:auto!important}
 
   /* Pain list + questions list */
   .pain-row td{font-size:13.5px!important}
+  .pain-row td:first-child{width:24px!important;padding-right:4px!important}
+  .pain-row td:nth-child(2){width:38px!important;padding-right:8px!important}
   .qrow td{font-size:13.5px!important}
 
-  /* Video cell */
-  .video-cell{height:200px!important}
+  /* Product screenshot fills the card on mobile */
+  img.product-shot{width:100%!important;max-width:100%!important;height:auto!important;display:block!important}
+
+  /* Video cell: hold 16:9 aspect ratio on every viewport */
+  .video-cell{height:auto!important;aspect-ratio:16/9!important;background-size:cover!important;background-position:center center!important}
+
+  /* Footer: let social icons and nav wrap and centre */
+  .f-td table{width:100%!important}
+  .f-td .f-soc{width:100%!important;text-align:center!important}
+  .f-td .f-soc td{padding:0 6px!important;display:inline-block!important}
+  .f-td .f-nav{display:block!important;width:100%!important;text-align:center!important;padding:10px 0 0!important}
+  .f-td .f-nav td{border:0!important;padding:4px 8px!important;display:inline-block!important}
 }
 
 /* ---- ≤420px (small mobile) -------------------------------------------- */
 @media only screen and (max-width:420px){
-  .h1{font-size:23px!important}
-  .h1b{font-size:21px!important}
+  .h1{font-size:22px!important}
+  .h1b{font-size:20px!important}
   .sec-h{font-size:20px!important}
   .mission-h{font-size:20px!important}
   .feat-pct{font-size:26px!important}
-  .h-td{padding:30px 20px 34px!important}
-  .b-sec{padding:0 18px!important}
-  .b-sec-t{padding:26px 18px 0!important}
-  .b-sec-last{padding:24px 18px 30px!important}
-  .video-cell{height:170px!important}
+  .h-td{padding:28px 18px 30px!important}
+  .b-sec{padding:0 16px!important}
+  .b-sec-t{padding:24px 16px 0!important}
+  .b-sec-last{padding:22px 16px 28px!important}
 }
 </style>
 </head>
@@ -100,7 +120,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 <tr><td style="padding-bottom:20px">
 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
 <td valign="middle">
-  <a href="https://eoi.soleapp.com.au" target="_blank">
+  <a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" target="_blank">
     <img src="https://assets.cdn.filesafe.space/VBOktk3p6uNjVNNF84vC/media/6a10026afe2210f89e37cb4f.png" alt="Sole Practice Manager" height="30" style="height:30px;width:auto;display:block;border:0"/>
   </a>
 </td>
@@ -121,7 +141,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   <tr><td class="h-td" style="padding:46px 40px 44px">
 
     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:24px"><tr>
-      <td valign="middle" style="padding:7px 14px 8px;background-color:#4D4DFF;border-radius:999px;font-size:9.5px;font-weight:700;color:#FFFFFF;letter-spacing:2px;text-transform:uppercase;font-family:'Plus Jakarta Sans',Arial,sans-serif;mso-padding-alt:7px 14px">
+      <td class="eyebrow-pill" valign="middle" style="padding:7px 14px 8px;background-color:#4D4DFF;border-radius:999px;font-size:9.5px;font-weight:700;color:#FFFFFF;letter-spacing:2px;text-transform:uppercase;font-family:'Plus Jakarta Sans',Arial,sans-serif;mso-padding-alt:7px 14px">
         <!--[if mso]><font color="#FFFFFF"><![endif]-->Where it breaks down<!--[if mso]></font><![endif]-->
       </td>
     </tr></table>
@@ -135,12 +155,12 @@ h1,h2,h3,h4,p{margin:0;padding:0}
       <td valign="middle" style="padding:0">
         <table border="0" cellpadding="0" cellspacing="0" role="presentation" class="hero-btn"><tr>
           <td valign="middle" style="background-color:#FFFFFF;border-radius:12px;padding:14px 24px;mso-padding-alt:14px 24px">
-            <a href="{{tidycal_link}}" target="_blank" style="display:inline-block;font-size:14px;font-weight:700;color:#1E1B4B;text-decoration:none;letter-spacing:-0.1px;white-space:nowrap;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#1E1B4B"><![endif]-->Book a June discovery call &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
+            <a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" target="_blank" style="display:inline-block;font-size:14px;font-weight:700;color:#1E1B4B;text-decoration:none;letter-spacing:-0.1px;white-space:nowrap;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#1E1B4B"><![endif]-->Learn more &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
           </td>
         </tr></table>
       </td>
       <td valign="middle" style="padding-left:18px;font-family:'Plus Jakarta Sans',Arial,sans-serif">
-        <a href="{{video_link}}" target="_blank" style="font-size:13px;font-weight:600;color:#BFC4FF;text-decoration:underline;text-decoration-color:rgba(191,196,255,0.5);text-underline-offset:3px;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#BFC4FF"><![endif]-->Watch the 90 second overview<!--[if mso]></font><![endif]--></a>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/spm-pre-release" target="_blank" style="font-size:13px;font-weight:600;color:#BFC4FF;text-decoration:underline;text-decoration-color:rgba(191,196,255,0.5);text-underline-offset:3px;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#BFC4FF"><![endif]-->Book a discovery call<!--[if mso]></font><![endif]--></a>
       </td>
     </tr></table>
 
@@ -294,12 +314,12 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 
     <table class="cta-buttons" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
       <td valign="middle" style="background-color:#FFFFFF;border-radius:12px;padding:14px 26px;mso-padding-alt:14px 26px">
-        <a href="{{tidycal_link}}" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#1E1B4B;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#1E1B4B"><![endif]-->Book a June discovery call &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/spm-pre-release" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#1E1B4B;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#1E1B4B"><![endif]-->Book a June discovery call &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
       </td>
       <td valign="middle" style="padding-left:10px">
         <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
           <td valign="middle" style="background-color:rgba(255,255,255,0.06);border-radius:12px;border:1px solid #4D4DFF;padding:13px 24px;mso-padding-alt:13px 24px">
-            <a href="https://eoi.soleapp.com.au" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#FFFFFF;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#FFFFFF"><![endif]-->View the pre-release page<!--[if mso]></font><![endif]--></a>
+            <a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#FFFFFF;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#FFFFFF"><![endif]-->Learn more<!--[if mso]></font><![endif]--></a>
           </td>
         </tr></table>
       </td>
@@ -311,13 +331,13 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 
 <!-- Footer -->
 <tr><td class="f-td" style="padding:36px 32px 18px;text-align:center">
-  <a href="https://eoi.soleapp.com.au" target="_blank">
+  <a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" target="_blank">
     <img src="https://assets.cdn.filesafe.space/VBOktk3p6uNjVNNF84vC/media/6a10026afe2210f89e37cb4f.png" alt="Sole Practice Manager" height="26" style="height:26px;width:auto;display:inline-block;margin:0 auto 14px;border:0"/>
   </a>
   <p style="font-size:11.5px;font-weight:500;color:#6B7280;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Practice management platform for Australian</p>
   <p style="font-size:11.5px;font-weight:500;color:#6B7280;margin:0 0 26px;font-family:'Plus Jakarta Sans',Arial,sans-serif">accounting &amp; bookkeeping firms.</p>
 
-  <table border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" style="margin:0 auto 28px"><tr>
+  <table class="f-soc" border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" style="margin:0 auto 28px"><tr>
     <td style="padding:0 4px">
       <a href="https://www.linkedin.com/company/soleapp/" target="_blank" style="display:block;width:38px;height:38px;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;text-decoration:none">
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRENERGRiI+PHBhdGggZD0iTTIwLjQ0NyAyMC40NTJoLTMuNTU0di01LjU2OWMwLTEuMzI4LS4wMjctMy4wMzctMS44NTItMy4wMzctMS44NTMgMC0yLjEzNiAxLjQ0NS0yLjEzNiAyLjkzOXY1LjY2N0g5LjM1MVY5aDMuNDE0djEuNTYxaC4wNDZjLjQ3Ny0uOSAxLjYzNy0xLjg1IDMuMzctMS44NSAzLjYwMSAwIDQuMjY3IDIuMzcgNC4yNjcgNS40NTV2Ni4yODZ6TTUuMzM3IDcuNDMzYy0xLjE0NCAwLTIuMDYzLS45MjYtMi4wNjMtMi4wNjUgMC0xLjEzOC45Mi0yLjA2MyAyLjA2My0yLjA2MyAxLjE0IDAgMi4wNjQuOTI1IDIuMDY0IDIuMDYzIDAgMS4xMzktLjkyNSAyLjA2NS0yLjA2NCAyLjA2NXptMS43ODIgMTMuMDE5SDMuNTU1VjloMy41NjR2MTEuNDUyek0yMi4yMjUgMEgxLjc3MUMuNzkyIDAgMCAuNzc0IDAgMS43Mjl2MjAuNTQyQzAgMjMuMjI3Ljc5MiAyNCAxLjc3MSAyNGgyMC40NTFDMjMuMiAyNCAyNCAyMy4yMjcgMjQgMjIuMjcxVjEuNzI5QzI0IC43NzQgMjMuMiAwIDIyLjIyMiAwaC4wMDN6Ii8+PC9zdmc+" width="14" height="14" alt="LinkedIn" style="display:block;margin:12px auto 0;border:0"/>
@@ -340,11 +360,11 @@ h1,h2,h3,h4,p{margin:0;padding:0}
     </td>
   </tr></table>
 
-  <table border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" style="margin-bottom:18px"><tr>
+  <table class="f-nav" border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" style="margin-bottom:18px"><tr>
     <td style="padding:0 10px"><a href="https://soleapp.atlassian.net/servicedesk" style="font-size:11.5px;font-weight:600;color:#6B7280;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#6B7280"><![endif]-->Help Center<!--[if mso]></font><![endif]--></a></td>
     <td style="padding:0 10px;border-left:1px solid #E5E7EB"><a href="https://soleapp.com.au/privacy-policy/" style="font-size:11.5px;font-weight:600;color:#6B7280;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#6B7280"><![endif]-->Privacy<!--[if mso]></font><![endif]--></a></td>
     <td style="padding:0 10px;border-left:1px solid #E5E7EB"><a href="https://soleapp.com.au/terms-of-service/" style="font-size:11.5px;font-weight:600;color:#6B7280;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#6B7280"><![endif]-->Terms<!--[if mso]></font><![endif]--></a></td>
-    <td style="padding:0 10px;border-left:1px solid #E5E7EB"><a href="https://eoi.soleapp.com.au" style="font-size:11.5px;font-weight:600;color:#4D4DFF;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#4D4DFF"><![endif]-->eoi.soleapp.com.au<!--[if mso]></font><![endif]--></a></td>
+    <td style="padding:0 10px;border-left:1px solid #E5E7EB"><a href="https://api.leadconnectorhq.com/widget/form/5k4GVctsMGGkb7LuXV4X" style="font-size:11.5px;font-weight:600;color:#4D4DFF;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif"><!--[if mso]><font color="#4D4DFF"><![endif]-->soleapp.com.au<!--[if mso]></font><![endif]--></a></td>
   </tr></table>
 
   <p style="font-size:10.5px;color:#9CA3AF;letter-spacing:.4px;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">&copy;2026 SOLEAPP PTY LTD &nbsp;&#x25CF;&nbsp; All Rights Reserved</p>
