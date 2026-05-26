@@ -84,3 +84,25 @@ The canonical color tokens for any Sole-branded design work (emails, web, market
 ## Typography
 
 **Plus Jakarta Sans only.** No serif fonts in any Sole-branded surface (email, web, marketing). Emphasis comes from weight (800 for headings, 300 for light subheadings, 700 for body strong) and colour (`#4D4DFF` for accent words), not from italic-serif treatments. Stack: `'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif`.
+
+## Voice & copy rules
+
+Visual rules alone don't ship a good email — the words matter just as much. The full guide lives in **`COPY_GUIDE.md`** (read it before drafting any new template). The three rules most often violated, repeated here so you see them next to the palette:
+
+- **No em dashes ( — ) in body copy.** The single strongest "this was written by AI" tell. Use a full stop, a comma, or split the sentence.
+- **"Our goal", not "the goal". "Your brand", not "firm-owned" or "white-label".** These exact phrasings are locked.
+- **Lead with the firm's pain, not the feature list.** Pain block opens; product block follows.
+
+## No AI tells
+
+Patterns that flag copy as machine-written. Don't ship any of these:
+
+- Em dashes in human-read text.
+- `It's not just X — it's Y` / `doesn't just A, it B`.
+- `X isn't a magical fix to Y` (or any "magical" hedge).
+- `Between A, B, and C…` openers that stack a list before the subject arrives.
+- `delayed`, `finally`, `at last` — implies missed timing. SPM was always on track.
+- `stack sprawl`, `firm-owned`, `white-label` — replace with plain language ("too many systems", "your brand").
+- Emoji in body copy. Use the visual system instead.
+
+See `COPY_GUIDE.md` § 2 for the full table and the running feedback log.
