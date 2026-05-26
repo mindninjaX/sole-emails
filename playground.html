@@ -423,7 +423,11 @@ iframe {
    Config
 ───────────────────────────────────────────────────────────────────────────── */
 const TEMPLATES = {
-  'priority-access': { label: 'Priority Access', file: 'email-template.html' }
+  'priority-access':    { label: '1 · Priority Access',    file: 'email-template.html' },
+  'disconnected':       { label: '2 · Disconnected',       file: 'email-2-disconnected.html' },
+  'how-spm-works':      { label: '3 · How SPM Works',      file: 'email-3-how-spm-works.html' },
+  'supported-rollout':  { label: '4 · Supported Rollout',  file: 'email-4-supported-rollout.html' },
+  'close-the-loop':     { label: '5 · Close the Loop',     file: 'email-5-close-the-loop.html' }
   // Add new templates: 'key': { label: 'Name', file: 'file.html' }
 };
 
@@ -472,6 +476,14 @@ async function loadTemplate(key) {
     .replace(/\{\{video_link\}\}/g,                         'https://www.youtube.com/watch?v=yg6JAxNp9nw')
     .replace(/\{\{contact\.first_name\}\}/g,                'Sarah')
     .replace(/\{\{custom_values\.founders_signature\}\}/g,  'Founder, Sole &amp; SPM');
+
+  // Inject a <base href> so relative paths (e.g. assets/hero/practice-dashboard.png)
+  // in the email resolve against the http server, not the iframe's blob: URL.
+  // Production emails will swap these to absolute CDN URLs before send (see SHIPPING.md).
+  const baseTag = `<base href="${window.location.origin}/"/>`;
+  if (/<head[^>]*>/i.test(html)) {
+    html = html.replace(/<head[^>]*>/i, m => m + baseTag);
+  }
 
   // Load each iframe with its viewport-overridden HTML
   for (const [ifId, cfg] of Object.entries(IFRAMES)) {

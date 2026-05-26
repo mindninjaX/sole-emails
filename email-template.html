@@ -8,8 +8,17 @@
 <meta name="supported-color-schemes" content="light"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
-<title>Sole Practice Manager — Priority Access</title>
+<title>Sole Practice Manager: Priority Access</title>
+<!-- styles: generated from email-styles.css; run python3 build.py to regenerate -->
 <style>
+/* ============================================================================
+   Sole emails: shared style block.
+   SINGLE SOURCE OF TRUTH. Edit here, then run:  python3 build.py
+   The script inlines this file into every email*.html <style> tag.
+   Do NOT edit the <style> block inside any email file by hand; it will be
+   overwritten on the next build.
+   ============================================================================ */
+
 :root{color-scheme:only light}
 body,table,td,p,a,span,h1,h2,h3,h4,div{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;mso-line-height-rule:exactly;text-rendering:optimizeLegibility}
 body{margin:0!important;padding:0!important;width:100%!important;background-color:#F5F4F8}
@@ -18,6 +27,8 @@ a{color:inherit;text-decoration:none}
 table{border-collapse:separate!important}
 h1,h2,h3,h4,p{margin:0;padding:0}
 .eyebrow{font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase}
+
+/* ---- ≤640px (tablet + mobile) ----------------------------------------- */
 @media only screen and (max-width:640px){
   .wrap{padding:14px 8px!important}
   .h-td{padding:34px 22px 36px!important}
@@ -35,24 +46,33 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   .px-hide{display:none!important}
   .feat-pct{font-size:30px!important;letter-spacing:-1.0px!important}
   .ben-row td{padding-top:10px!important;padding-bottom:10px!important}
+
   /* Hero CTA stack on mobile */
   .hero-cta-row td{display:block!important;width:100%!important;padding:0 0 14px!important}
   .hero-cta-row .hero-btn{display:inline-block!important}
+
   /* Closing CTA two-button stack */
   .cta-buttons td{display:block!important;width:100%!important;padding:6px 0!important}
-  /* Pipeline stack vertical */
-  .pipe-step{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;text-align:left!important;padding:0 0 6px!important}
+
+  /* End-to-end flow / rollout flow / view cards / chip grid: stack to 1 col */
+  .pipe-step,
+  .roll-step,
+  .pcat-col,
+  .ben-col,
+  .view-col,
+  .chip-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px!important}
   .pipe-arrow{display:none!important}
-  /* Product categories 2x2 → 1 col */
-  .pcat-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 10px!important}
   .pcat-cell{height:auto!important}
-  /* Benefits 2-col → 1 col */
-  .ben-col{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding:0 0 12px!important}
-  /* Pain list */
+
+  /* Pain list + questions list */
   .pain-row td{font-size:13.5px!important}
+  .qrow td{font-size:13.5px!important}
+
   /* Video cell */
   .video-cell{height:200px!important}
 }
+
+/* ---- ≤420px (small mobile) -------------------------------------------- */
 @media only screen and (max-width:420px){
   .h1{font-size:23px!important}
   .h1b{font-size:21px!important}
@@ -70,7 +90,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
 <body style="margin:0;padding:0;background-color:#F5F4F8">
 
 <!-- Preview text -->
-<div style="display:none;font-size:1px;color:#F5F4F8;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">You registered interest before we opened broadly — here's your first look at what's coming, including 25% off for a full year.</div>
+<div style="display:none;font-size:1px;color:#F5F4F8;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">You registered interest a few months ago, so we are coming back to you first.</div>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F4F8">
 <tr><td class="wrap" style="padding:30px 20px">
@@ -113,7 +133,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
     <h1 class="h1" style="font-size:40px;font-weight:800;line-height:1.04;letter-spacing:-1.1px;color:#FFFFFF;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Sole Practice Manager</h1>
     <h1 class="h1b" style="font-size:34px;font-weight:300;line-height:1.1;letter-spacing:-0.6px;color:#BFC4FF;margin:0 0 24px;font-family:'Plus Jakarta Sans',Arial,sans-serif">pre-release is opening.</h1>
 
-    <p style="font-size:14.5px;line-height:1.75;color:#BFC4FF;margin:0 0 28px;max-width:440px;font-family:'Plus Jakarta Sans',Arial,sans-serif">You're on the short list &mdash; a first look before we open broadly.</p>
+    <p style="font-size:14.5px;line-height:1.75;color:#BFC4FF;margin:0 0 28px;max-width:440px;font-family:'Plus Jakarta Sans',Arial,sans-serif">You&rsquo;re on the limited shortlist.</p>
 
     <!-- CTA row -->
     <table class="hero-cta-row" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
@@ -143,7 +163,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   <!-- Founder identity card -->
   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:24px"><tr>
     <td width="60" valign="middle" style="width:60px;min-width:60px;padding-right:16px">
-      <img src="https://assets.cdn.filesafe.space/o7TKHaN6MPkNHIKqhoAY/media/69d757ef7c37eff74919329c.jpeg" alt="Johann Oberholzer" width="56" height="56" style="width:56px;height:56px;border-radius:999px;display:block;border:2px solid #EEF0FF"/>
+      <img src="https://assets.cdn.filesafe.space/VBOktk3p6uNjVNNF84vC/media/6a15257f0397b3655e6d2e05.jpeg" alt="Johann Oberholzer" width="56" height="56" style="width:56px;height:56px;border-radius:999px;display:block;border:2px solid #EEF0FF"/>
     </td>
     <td valign="middle">
       <p style="font-size:9.5px;font-weight:700;color:#4D4DFF;letter-spacing:1.8px;text-transform:uppercase;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">A note from</p>
@@ -153,76 +173,105 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   </tr></table>
 
   <p style="font-size:17px;font-weight:700;color:#0F1117;margin:0 0 12px;letter-spacing:-0.3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Hi {{contact.first_name}},</p>
-  <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 16px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Between tax deadlines, scattered client comms, and a stack of tools that don't talk to each other &mdash; most firm owners I speak to are holding the whole thing together by hand. That's why we built Sole.</p>
-  <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 24px;font-family:'Plus Jakarta Sans',Arial,sans-serif">You previously registered interest in Sole Practice Manager (SPM), so I wanted to come back to you as promised. We're launching with two firms in <strong style="color:#0F1117;font-weight:700">early June</strong>, followed by a supported roll-out from <strong style="color:#0F1117;font-weight:700">mid-July</strong>.</p>
+  <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 16px;font-family:'Plus Jakarta Sans',Arial,sans-serif">A few months ago, you registered interest in Sole Practice Manager, so I wanted to come back to you first.</p>
+  <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 16px;font-family:'Plus Jakarta Sans',Arial,sans-serif">We&rsquo;ve worked with a number of Australian accounting firms while building SPM, and they all have one thing in common. They are either holding the whole firm together in someone&rsquo;s head, or paying for 10+ subscriptions a month for the privilege of re-keying the same data and never being quite sure where things stand.</p>
+  <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 16px;font-family:'Plus Jakarta Sans',Arial,sans-serif">That is what SPM is built to solve.</p>
+  <p style="font-size:15px;line-height:1.75;color:#1F2937;margin:0 0 24px;font-family:'Plus Jakarta Sans',Arial,sans-serif">We&rsquo;re launching with two firms in <strong style="color:#0F1117;font-weight:700">early June</strong>, followed by a supported rollout from <strong style="color:#0F1117;font-weight:700">mid-July</strong> (which we&rsquo;d love for you to be a part of).</p>
 </td></tr>
 
-<!-- Tax-season urgency banner -->
+<!-- Limited rollout spots banner -->
 <tr><td class="b-sec" style="padding:0 48px 32px">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FEF3C7;border-radius:14px;border:1px solid #FDE68A">
-    <tr><td style="padding:14px 18px">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#EEF0FF;border-radius:14px;border:1px solid #DDE0FF">
+    <tr><td style="padding:16px 18px">
       <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-        <td width="28" valign="middle" style="width:28px;font-size:16px;line-height:1;padding-right:12px;color:#D97706">&#x23F1;&#xFE0F;</td>
+        <td width="32" valign="top" style="width:32px;padding:2px 12px 0 0">
+          <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
+            <td style="width:22px;height:22px;background-color:#4D4DFF;border-radius:999px;text-align:center;vertical-align:middle;font-size:11px;line-height:22px;color:#FFFFFF;font-weight:800;font-family:'Plus Jakarta Sans',Arial,sans-serif">i</td>
+          </tr></table>
+        </td>
         <td valign="middle">
-          <p style="font-size:13.5px;font-weight:800;color:#92400E;margin:0 0 2px;line-height:1.4;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Tax season is around the corner.</p>
-          <p style="font-size:12.5px;color:#92400E;margin:0;line-height:1.5;font-family:'Plus Jakarta Sans',Arial,sans-serif">Move your firm onto one platform before the rush hits &mdash; not after.</p>
+          <p style="font-size:13.5px;font-weight:800;color:#1E1B4B;margin:0 0 3px;line-height:1.4;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Limited rollout spots.</p>
+          <p style="font-size:12.5px;color:#3C33A4;margin:0;line-height:1.55;font-family:'Plus Jakarta Sans',Arial,sans-serif">This release only has a limited number of spots, because selected firms receive dedicated onboarding, setup support and training. We want the first rollout to be properly supported, not rushed.</p>
         </td>
       </tr></table>
     </td></tr>
   </table>
 </td></tr>
 
-<!-- 5-pain bullet list (from EOI) -->
+<!-- 5-pain bullet list -->
 <tr><td class="b-sec" style="padding:0 48px 36px">
   <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border-radius:16px;border:1px solid #EEF0FF">
-    <tr><td style="padding:24px 24px 8px">
-      <p class="eyebrow" style="color:#6B7280;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The problem</p>
-      <h3 style="font-size:18px;font-weight:800;color:#0F1117;letter-spacing:-0.3px;line-height:1.3;margin:0 0 18px;font-family:'Plus Jakarta Sans',Arial,sans-serif">AI won't fix a broken operating model.</h3>
+    <tr><td style="padding:26px 26px 12px">
+      <p class="eyebrow" style="color:#6B7280;margin:0 0 6px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The problem</p>
+      <h3 style="font-size:20px;font-weight:800;color:#0F1117;letter-spacing:-0.4px;line-height:1.25;margin:0 0 20px;font-family:'Plus Jakarta Sans',Arial,sans-serif">More systems won&rsquo;t give you more control.</h3>
 
       <!-- Pain 1 -->
       <table class="pain-row" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-        <td width="34" valign="top" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:3px 10px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">01</td>
-        <td valign="top" style="padding:0 0 14px;border-bottom:1px solid #EEF0FF">
-          <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Stack sprawl &mdash; 8&ndash;12 tools, no unified view.</p>
-          <p style="font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">CRM, workflow, KYC, scheduling, comms &mdash; your team stitches truth together instead of doing the work.</p>
+        <td width="34" valign="middle" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:10px 6px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">01</td>
+        <td width="44" valign="middle" style="width:44px;padding:10px 14px 14px 0">
+          <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
+            <td style="width:34px;height:34px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:17px;line-height:34px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F5C2;&#xFE0F;</td>
+          </tr></table>
+        </td>
+        <td valign="middle" style="padding:10px 0 14px;border-bottom:1px solid #EEF0FF">
+          <p style="font-size:14.5px;font-weight:700;color:#0F1117;margin:0;letter-spacing:-0.2px;line-height:1.35;font-family:'Plus Jakarta Sans',Arial,sans-serif">Too many tabs. No single view.</p>
         </td>
       </tr></table>
 
       <!-- Pain 2 -->
       <table class="pain-row" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-        <td width="34" valign="top" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:14px 10px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">02</td>
-        <td valign="top" style="padding:14px 0;border-bottom:1px solid #EEF0FF">
-          <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Margin pressure &mdash; you find out when it's already late.</p>
-          <p style="font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Jobs drift overdue. Reviews stack up. Billing slips. By the time you spot the bottleneck, margin's already gone.</p>
+        <td width="34" valign="middle" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:10px 6px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">02</td>
+        <td width="44" valign="middle" style="width:44px;padding:10px 14px 14px 0">
+          <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
+            <td style="width:34px;height:34px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:17px;line-height:34px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x23F3;</td>
+          </tr></table>
+        </td>
+        <td valign="middle" style="padding:10px 0 14px;border-bottom:1px solid #EEF0FF">
+          <p style="font-size:14.5px;font-weight:700;color:#0F1117;margin:0;letter-spacing:-0.2px;line-height:1.35;font-family:'Plus Jakarta Sans',Arial,sans-serif">Client onboarding still takes too long.</p>
         </td>
       </tr></table>
 
       <!-- Pain 3 -->
       <table class="pain-row" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-        <td width="34" valign="top" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:14px 10px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">03</td>
-        <td valign="top" style="padding:14px 0;border-bottom:1px solid #EEF0FF">
-          <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">AI risk &mdash; AI on top of silos is just more silos.</p>
-          <p style="font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Sole puts AI inside the workflow &mdash; it sees what's missing, what's overdue, who's overloaded. One brain, not ten.</p>
+        <td width="34" valign="middle" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:10px 6px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">03</td>
+        <td width="44" valign="middle" style="width:44px;padding:10px 14px 14px 0">
+          <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
+            <td style="width:34px;height:34px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:17px;line-height:34px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F6A7;</td>
+          </tr></table>
+        </td>
+        <td valign="middle" style="padding:10px 0 14px;border-bottom:1px solid #EEF0FF">
+          <p style="font-size:14.5px;font-weight:700;color:#0F1117;margin:0;letter-spacing:-0.2px;line-height:1.35;font-family:'Plus Jakarta Sans',Arial,sans-serif">Jobs get stuck without warning.</p>
         </td>
       </tr></table>
 
       <!-- Pain 4 -->
       <table class="pain-row" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-        <td width="34" valign="top" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:14px 10px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">04</td>
-        <td valign="top" style="padding:14px 0;border-bottom:1px solid #EEF0FF">
-          <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Client control &mdash; you don't own the client layer.</p>
-          <p style="font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">If clients log in to someone else's app, the relationship belongs to them. Sole runs firm-owned onboarding, comms and payments &mdash; branded as you.</p>
+        <td width="34" valign="middle" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:10px 6px 14px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">04</td>
+        <td width="44" valign="middle" style="width:44px;padding:10px 14px 14px 0">
+          <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
+            <td style="width:34px;height:34px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:17px;line-height:34px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F9FE;</td>
+          </tr></table>
+        </td>
+        <td valign="middle" style="padding:10px 0 14px;border-bottom:1px solid #EEF0FF">
+          <p style="font-size:14.5px;font-weight:700;color:#0F1117;margin:0;letter-spacing:-0.2px;line-height:1.35;font-family:'Plus Jakarta Sans',Arial,sans-serif">Billing slips when work is unclear.</p>
         </td>
       </tr></table>
 
       <!-- Pain 5 -->
       <table class="pain-row" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-        <td width="34" valign="top" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:14px 10px 18px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">05</td>
-        <td valign="top" style="padding:14px 0 18px">
-          <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Integrations &mdash; plays nicely with what you already run.</p>
-          <p style="font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Native Xero, MYOB, ASIC, ATO and bank feeds. Keep the ledger you trust &mdash; Sole runs the operating layer around it.</p>
+        <td width="34" valign="middle" style="width:34px;font-size:10.5px;font-weight:700;color:#4D4DFF;letter-spacing:0.8px;padding:10px 6px 18px 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">05</td>
+        <td width="44" valign="middle" style="width:44px;padding:10px 14px 18px 0">
+          <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
+            <td style="width:34px;height:34px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:17px;line-height:34px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x2728;</td>
+          </tr></table>
+        </td>
+        <td valign="middle" style="padding:10px 0 18px">
+          <p style="font-size:14.5px;font-weight:700;color:#0F1117;margin:0;letter-spacing:-0.2px;line-height:1.35;font-family:'Plus Jakarta Sans',Arial,sans-serif">AI isn&rsquo;t a magic fix for disconnected systems.</p>
         </td>
       </tr></table>
+
+      <!-- Supporting paragraph -->
+      <p style="font-size:13px;line-height:1.65;color:#3C33A4;margin:6px 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">CRM, workflow, client documents, payments, billing and spreadsheets each tell part of the story. No one has the full picture early enough to act. SPM connects the work so owners, staff and clients aren&rsquo;t relying on manual follow-up.</p>
 
     </td></tr>
   </table>
@@ -235,145 +284,147 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   </table>
 </td></tr>
 
-<!-- ── Section: Mission ── -->
+<!-- ── Section: Our goal ── -->
 <tr><td class="b-sec-t" style="padding:36px 48px 0">
-  <p class="eyebrow" style="color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The goal</p>
-  <h3 class="mission-h" style="font-size:26px;font-weight:800;color:#0F1117;letter-spacing:-0.7px;line-height:1.22;margin:0 0 16px;font-family:'Plus Jakarta Sans',Arial,sans-serif">One <span style="color:#4D4DFF">firm-owned</span> platform &mdash; not a stack of disconnected tools.</h3>
-  <p style="font-size:14.5px;line-height:1.8;color:#1F2937;margin:0 0 28px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The goal is simple: help accounting and bookkeeping firms move away from disconnected tools and into a firm-owned platform that brings practice management, client onboarding, accounting, payments, reporting and AI-enabled workflows into one operating layer.</p>
+  <p class="eyebrow" style="color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Our goal</p>
+  <h3 class="mission-h" style="font-size:30px;font-weight:800;color:#0F1117;letter-spacing:-0.8px;line-height:1.18;margin:0 0 18px;font-family:'Plus Jakarta Sans',Arial,sans-serif">One <span style="color:#4D4DFF">connected place</span> to run the firm.</h3>
+  <p style="font-size:15px;line-height:1.8;color:#1F2937;margin:0 0 14px;font-family:'Plus Jakarta Sans',Arial,sans-serif">SPM brings practice management, client onboarding, jobs, staff capacity, billing, reporting, client portal workflows and AI-enabled follow-up into one operating layer.</p>
+  <p style="font-size:15px;line-height:1.8;color:#1F2937;margin:0 0 28px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The aim is practical. Help firms <strong style="color:#0F1117;font-weight:700">save time</strong>, reduce duplicated work, <strong style="color:#0F1117;font-weight:700">cut unnecessary subscriptions</strong>, and give owners a clearer view of what is moving, what is stuck and what needs attention.</p>
 </td></tr>
 
-<!-- ── Section: Pipeline (end-to-end) ── -->
-<tr><td class="b-sec" style="padding:0 48px 28px">
+<!-- ── Section: End-to-end flow (2 rows of 4) ── -->
+<tr><td class="b-sec" style="padding:0 48px 36px">
   <p class="eyebrow" style="color:#4D4DFF;margin:0 0 10px;font-family:'Plus Jakarta Sans',Arial,sans-serif">End-to-end</p>
-  <p style="font-size:14px;line-height:1.6;color:#1F2937;margin:0 0 18px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The work moves through one connected flow &mdash; lead to client value.</p>
+  <p style="font-size:14.5px;line-height:1.65;color:#1F2937;margin:0 0 20px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The work moves through one connected flow, from the first lead through to client value.</p>
 
+  <!-- Row 1: Lead · Proposal · Onboarding · Job -->
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:10px"><tr>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 5px 0 0">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">01</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Lead</p>
+      </td></tr></table>
+    </td>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 5px">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">02</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Proposal</p>
+      </td></tr></table>
+    </td>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 5px">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">03</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Onboarding</p>
+      </td></tr></table>
+    </td>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 0 0 5px">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">04</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Job</p>
+      </td></tr></table>
+    </td>
+  </tr></table>
+
+  <!-- Row 2: Review · Billing · Collection · Client value -->
   <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">01</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Lead</p>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 5px 0 0">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">05</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Review</p>
       </td></tr></table>
     </td>
-    <td class="pipe-arrow" align="center" valign="middle" width="14" style="width:14px;padding:0;font-size:14px;color:#9CA3FF;line-height:1;font-family:Arial,Helvetica,sans-serif">&rsaquo;</td>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">02</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Proposal</p>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 5px">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">06</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Billing</p>
       </td></tr></table>
     </td>
-    <td class="pipe-arrow" align="center" valign="middle" width="14" style="width:14px;padding:0;font-size:14px;color:#9CA3FF;line-height:1;font-family:Arial,Helvetica,sans-serif">&rsaquo;</td>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">03</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Onboard</p>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 5px">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">07</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Collection</p>
       </td></tr></table>
     </td>
-    <td class="pipe-arrow" align="center" valign="middle" width="14" style="width:14px;padding:0;font-size:14px;color:#9CA3FF;line-height:1;font-family:Arial,Helvetica,sans-serif">&rsaquo;</td>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">04</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Job</p>
-      </td></tr></table>
-    </td>
-    <td class="pipe-arrow" align="center" valign="middle" width="14" style="width:14px;padding:0;font-size:14px;color:#9CA3FF;line-height:1;font-family:Arial,Helvetica,sans-serif">&rsaquo;</td>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">05</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Review</p>
-      </td></tr></table>
-    </td>
-    <td class="pipe-arrow" align="center" valign="middle" width="14" style="width:14px;padding:0;font-size:14px;color:#9CA3FF;line-height:1;font-family:Arial,Helvetica,sans-serif">&rsaquo;</td>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">06</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Billing</p>
-      </td></tr></table>
-    </td>
-    <td class="pipe-arrow" align="center" valign="middle" width="14" style="width:14px;padding:0;font-size:14px;color:#9CA3FF;line-height:1;font-family:Arial,Helvetica,sans-serif">&rsaquo;</td>
-    <td class="pipe-step" align="center" valign="middle" style="padding:0">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px"><tr><td align="center" style="padding:10px 4px">
-        <p style="font-size:9px;font-weight:700;color:#4D4DFF;letter-spacing:1px;margin:0 0 3px;font-family:'Plus Jakarta Sans',Arial,sans-serif">07</p>
-        <p style="font-size:11px;font-weight:700;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.1px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Value</p>
+    <td class="pipe-step" width="25%" valign="middle" style="padding:0 0 0 5px">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:12px"><tr><td align="center" style="padding:16px 6px">
+        <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.2px;margin:0 0 5px;font-family:'Plus Jakarta Sans',Arial,sans-serif">08</p>
+        <p style="font-size:14px;font-weight:800;color:#0F1117;margin:0;line-height:1.2;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Client value</p>
       </td></tr></table>
     </td>
   </tr></table>
 </td></tr>
 
-<!-- ── Section: Product categories (2x2) ── -->
+<!-- ── Section: What SPM helps your firm manage (4 numbered rows) ── -->
 <tr><td class="b-sec-t" style="padding:28px 48px 0">
-  <p class="eyebrow" style="color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">What's inside</p>
-  <h3 class="sec-h" style="font-size:22px;font-weight:800;color:#0F1117;letter-spacing:-0.5px;line-height:1.22;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Everything your firm needs, in one place.</h3>
-  <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 20px;font-family:'Plus Jakarta Sans',Arial,sans-serif">One subscription replaces the patchwork &mdash; without the patchwork pricing.</p>
+  <p class="eyebrow" style="color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">What&rsquo;s inside</p>
+  <h3 class="sec-h" style="font-size:24px;font-weight:800;color:#0F1117;letter-spacing:-0.5px;line-height:1.22;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">What SPM helps your firm manage.</h3>
+  <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 22px;font-family:'Plus Jakarta Sans',Arial,sans-serif">One platform across the four jobs the firm can&rsquo;t afford to drop.</p>
 </td></tr>
-<tr><td class="b-sec" style="padding:0 48px 36px">
+<tr><td class="b-sec" style="padding:0 48px 28px">
   <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
       <td class="pcat-col" width="50%" valign="top" style="padding:0 6px 12px 0">
-        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:18px 18px 18px;height:210px">
+        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:22px 20px 20px;height:188px">
           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:12px"><tr>
-            <td style="width:36px;height:36px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:18px;line-height:36px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F465;</td>
+            <td style="width:40px;height:40px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:20px;line-height:40px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F465;</td>
           </tr></table>
-          <p style="font-size:13.5px;font-weight:800;color:#0F1117;margin:0 0 4px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Client Management</p>
-          <p style="font-size:12px;line-height:1.5;color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">A CRM your team will actually use.</p>
-          <p style="font-size:11.5px;line-height:1.7;color:#1F2937;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; 360&deg; client timeline &amp; docs<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Automated status updates<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Native Xero &amp; MYOB sync
-          </p>
+          <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.4px;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">01</p>
+          <p style="font-size:15px;font-weight:800;color:#0F1117;margin:0 0 6px;letter-spacing:-0.2px;line-height:1.25;font-family:'Plus Jakarta Sans',Arial,sans-serif">Clients and onboarding</p>
+          <p style="font-size:13px;line-height:1.55;color:#3C33A4;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Capture information, documents, tasks and next steps in one place.</p>
         </td></tr></table>
       </td>
       <td class="pcat-col" width="50%" valign="top" style="padding:0 0 12px 6px">
-        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:18px 18px 18px;height:210px">
+        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:22px 20px 20px;height:188px">
           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:12px"><tr>
-            <td style="width:36px;height:36px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:18px;line-height:36px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4C5;</td>
+            <td style="width:40px;height:40px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:20px;line-height:40px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4CB;</td>
           </tr></table>
-          <p style="font-size:13.5px;font-weight:800;color:#0F1117;margin:0 0 4px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Staff &amp; Scheduling</p>
-          <p style="font-size:12px;line-height:1.5;color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Schedule capacity, not just calendars.</p>
-          <p style="font-size:11.5px;line-height:1.7;color:#1F2937;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Drag-drop weekly workload<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Skill matrix per staff member<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Real-time capacity forecasts
-          </p>
+          <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.4px;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">02</p>
+          <p style="font-size:15px;font-weight:800;color:#0F1117;margin:0 0 6px;letter-spacing:-0.2px;line-height:1.25;font-family:'Plus Jakarta Sans',Arial,sans-serif">Jobs and staff capacity</p>
+          <p style="font-size:13px;line-height:1.55;color:#3C33A4;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">See what is due, blocked, overloaded or ready to move.</p>
         </td></tr></table>
       </td>
     </tr>
     <tr>
       <td class="pcat-col" width="50%" valign="top" style="padding:0 6px 0 0">
-        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:18px 18px 18px;height:210px">
+        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:22px 20px 20px;height:188px">
           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:12px"><tr>
-            <td style="width:36px;height:36px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:18px;line-height:36px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4DD;</td>
+            <td style="width:40px;height:40px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:20px;line-height:40px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F9FE;</td>
           </tr></table>
-          <p style="font-size:13.5px;font-weight:800;color:#0F1117;margin:0 0 4px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Onboarding &amp; KYC</p>
-          <p style="font-size:12px;line-height:1.5;color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Onboard clients in hours, not weeks.</p>
-          <p style="font-size:11.5px;line-height:1.7;color:#1F2937;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Branded client portal<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Built-in ID &amp; AML checks<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; E-sign engagement letters
-          </p>
+          <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.4px;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">03</p>
+          <p style="font-size:15px;font-weight:800;color:#0F1117;margin:0 0 6px;letter-spacing:-0.2px;line-height:1.25;font-family:'Plus Jakarta Sans',Arial,sans-serif">Billing and collections</p>
+          <p style="font-size:13px;line-height:1.55;color:#3C33A4;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Keep billing, payment status and follow-up connected to the work.</p>
         </td></tr></table>
       </td>
       <td class="pcat-col" width="50%" valign="top" style="padding:0 0 0 6px">
-        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:18px 18px 18px;height:210px">
+        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F5F6FF;border:1px solid #EEF0FF;border-radius:14px"><tr><td valign="top" class="pcat-cell" style="padding:22px 20px 20px;height:188px">
           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:12px"><tr>
-            <td style="width:36px;height:36px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:18px;line-height:36px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4CA;</td>
+            <td style="width:40px;height:40px;background-color:#FFFFFF;border:1px solid #DDE0FF;border-radius:10px;text-align:center;vertical-align:middle;font-size:20px;line-height:40px;font-family:'Plus Jakarta Sans',Arial,sans-serif">&#x1F4CA;</td>
           </tr></table>
-          <p style="font-size:13.5px;font-weight:800;color:#0F1117;margin:0 0 4px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Dashboards</p>
-          <p style="font-size:12px;line-height:1.5;color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Insights partners can actually act on.</p>
-          <p style="font-size:11.5px;line-height:1.7;color:#1F2937;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Practice (WIP, P&amp;L, health)<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Client status matrix<br/>
-            <span style="color:#4D4DFF;font-weight:700">&#8226;</span>&nbsp; Live, no Excel exports
-          </p>
+          <p style="font-size:10px;font-weight:700;color:#4D4DFF;letter-spacing:1.4px;margin:0 0 4px;font-family:'Plus Jakarta Sans',Arial,sans-serif">04</p>
+          <p style="font-size:15px;font-weight:800;color:#0F1117;margin:0 0 6px;letter-spacing:-0.2px;line-height:1.25;font-family:'Plus Jakarta Sans',Arial,sans-serif">Dashboards and firm visibility</p>
+          <p style="font-size:13px;line-height:1.55;color:#3C33A4;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">See revenue, work in progress, client activity and firm performance.</p>
         </td></tr></table>
       </td>
     </tr>
   </table>
 </td></tr>
 
-<!-- ── Section: Video (embedded-style YouTube player) ── -->
+<!-- ── Dashboard screenshot: Practice Dashboard ── -->
+<!-- TODO_ASSET_HOSTING: src is a relative path that works in the playground and GitHub Pages preview. Before sending the email, upload assets/hero/practice-dashboard.png to assets.cdn.filesafe.space and swap to an absolute URL. See SHIPPING.md. -->
 <tr><td class="b-sec" style="padding:0 48px 36px">
-  <p class="eyebrow" style="color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">See it in motion &middot; 2 min</p>
-  <a href="https://www.youtube.com/watch?v=yg6JAxNp9nw" target="_blank" style="text-decoration:none;display:block">
+  <p class="eyebrow" style="color:#6B7280;margin:0 0 10px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Practice Dashboard &middot; the firm in one view</p>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#FFFFFF;border-radius:16px;border:1px solid #DDE0FF">
+    <tr><td align="center" style="padding:0;border-radius:16px;overflow:hidden">
+      <img src="assets/hero/practice-dashboard.png" alt="SPM Practice Dashboard: revenue, WIP, utilisation, jobs overdue, available capacity" width="600" style="width:100%;max-width:600px;height:auto;display:block;border:0;border-radius:16px"/>
+    </td></tr>
+  </table>
+  <p style="font-size:12.5px;line-height:1.55;color:#6B7280;margin:10px 0 0;text-align:center;font-family:'Plus Jakarta Sans',Arial,sans-serif">Revenue, WIP, utilisation, jobs overdue and capacity. All live, no Excel exports.</p>
+</td></tr>
+
+<!-- ── Section: Product · 90 second overview ── -->
+<tr><td class="b-sec" style="padding:0 48px 36px">
+  <p class="eyebrow" style="color:#6B7280;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Product &middot; 90 second overview</p>
+  <a href="{{video_link}}" target="_blank" style="text-decoration:none;display:block">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#0F1117;background-image:url('https://img.youtube.com/vi/yg6JAxNp9nw/maxresdefault.jpg');background-size:cover;background-position:center;border-radius:14px">
       <tr><td class="video-cell" height="280" valign="middle" align="center" style="height:280px;border-radius:14px;background-image:linear-gradient(180deg,rgba(15,17,23,0.05) 0%,rgba(15,17,23,0.0) 35%,rgba(15,17,23,0.55) 100%)">
         <!-- YouTube-style red play button -->
@@ -385,7 +436,7 @@ h1,h2,h3,h4,p{margin:0;padding:0}
       </td></tr>
     </table>
   </a>
-  <p style="font-size:12px;color:#6B7280;margin:10px 0 0;text-align:center;font-family:'Plus Jakarta Sans',Arial,sans-serif">Walkthrough of Sole Practice Manager &mdash; opens on YouTube.</p>
+  <p style="font-size:12px;color:#6B7280;margin:10px 0 0;text-align:center;font-family:'Plus Jakarta Sans',Arial,sans-serif">See how SPM connects the firm, team and client workflow.</p>
 </td></tr>
 
 <!-- Divider -->
@@ -395,11 +446,11 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   </table>
 </td></tr>
 
-<!-- ── Section: Priority benefits ── -->
+<!-- ── Section: For selected pre-release firms ── -->
 <tr><td class="b-sec-t" style="padding:36px 48px 0">
   <p class="eyebrow" style="color:#F97316;margin:0 0 12px;font-family:'Plus Jakarta Sans',Arial,sans-serif">For selected pre-release firms</p>
-  <h2 class="sec-h" style="font-size:24px;font-weight:800;color:#0F1117;letter-spacing:-0.6px;line-height:1.2;margin:0 0 6px;font-family:'Plus Jakarta Sans',Arial,sans-serif">We are offering:</h2>
-  <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0 0 24px;font-family:'Plus Jakarta Sans',Arial,sans-serif">A curated package to help your firm move in with confidence.</p>
+  <h2 class="sec-h" style="font-size:26px;font-weight:800;color:#0F1117;letter-spacing:-0.6px;line-height:1.2;margin:0 0 8px;font-family:'Plus Jakarta Sans',Arial,sans-serif">A supported rollout, not just access.</h2>
+  <p style="font-size:14.5px;line-height:1.65;color:#6B7280;margin:0 0 24px;font-family:'Plus Jakarta Sans',Arial,sans-serif">The first rollout is limited because we are supporting it properly. Here is what selected firms receive.</p>
 
   <!-- Featured offer tile (brand-only navy gradient, no orange bleed) -->
   <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#1E1B4B;background-image:linear-gradient(135deg,#191944 0%,#1E1B4B 50%,#251F66 100%);border-radius:18px;margin-bottom:14px">
@@ -408,21 +459,21 @@ h1,h2,h3,h4,p{margin:0;padding:0}
       <!-- Flagship tag -->
       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:18px"><tr>
         <td style="padding:6px 12px 7px;background-color:#F97316;border-radius:999px;font-size:9.5px;font-weight:700;color:#FFFFFF;letter-spacing:1.8px;text-transform:uppercase;font-family:'Plus Jakarta Sans',Arial,sans-serif;mso-padding-alt:6px 12px">
-          Flagship offer
+          Year 1 pricing
         </td>
       </tr></table>
 
-      <p class="feat-pct" style="font-size:40px;font-weight:800;color:#FFFFFF;letter-spacing:-1.6px;line-height:1.05;margin:0 0 10px;font-family:'Plus Jakarta Sans',Arial,sans-serif">25% off <span style="font-weight:300;color:#BFC4FF">for a full year</span></p>
-      <p style="font-size:13.5px;line-height:1.65;color:#BFC4FF;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">On your SPM subscription &mdash; for being on this list first.</p>
+      <p class="feat-pct" style="font-size:40px;font-weight:800;color:#FFFFFF;letter-spacing:-1.6px;line-height:1.05;margin:0 0 10px;font-family:'Plus Jakarta Sans',Arial,sans-serif">25% off <span style="font-weight:300;color:#BFC4FF">Year 1</span></p>
+      <p style="font-size:13.5px;line-height:1.65;color:#BFC4FF;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">On your SPM subscription, for firms in the first rollout.</p>
 
     </td></tr>
   </table>
 
   <!-- Sub-heading for list -->
-  <p style="font-size:12.5px;line-height:1.6;color:#6B7280;margin:20px 0 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Plus everything you need to settle in:</p>
+  <p style="font-size:12.5px;line-height:1.6;color:#6B7280;margin:20px 0 0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Plus the support we wrap around it:</p>
 </td></tr>
 
-<!-- Benefit list — 2 columns -->
+<!-- Benefit list, 2 columns -->
 <tr><td class="b-sec" style="padding:14px 48px 0">
 
   <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
@@ -491,8 +542,8 @@ h1,h2,h3,h4,p{margin:0;padding:0}
             </tr></table>
           </td>
           <td valign="top">
-            <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">White-label option</p>
-            <p style="font-size:12px;line-height:1.5;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Let clients experience the platform under your firm's brand.</p>
+            <p style="font-size:13.5px;font-weight:700;color:#0F1117;margin:0 0 2px;letter-spacing:-0.2px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Your brand option</p>
+            <p style="font-size:12px;line-height:1.5;color:#6B7280;margin:0;font-family:'Plus Jakarta Sans',Arial,sans-serif">Explore SPM under your own brand, with your firm front and centre.</p>
           </td>
         </tr></table>
       </td>
@@ -518,18 +569,19 @@ h1,h2,h3,h4,p{margin:0;padding:0}
   <tr><td class="cta-td" style="padding:42px 40px 42px">
 
     <p class="eyebrow" style="color:#9CA3FF;margin:0 0 14px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Next step</p>
-    <h2 class="cta-h" style="font-size:26px;font-weight:800;color:#FFFFFF;letter-spacing:-0.6px;margin:0 0 12px;line-height:1.18;font-family:'Plus Jakarta Sans',Arial,sans-serif">See how it fits your firm.</h2>
-    <p style="font-size:14.5px;line-height:1.75;color:#BFC4FF;margin:0 0 26px;font-family:'Plus Jakarta Sans',Arial,sans-serif">Start with the overview &mdash; the full pre-release page walks you through what Sole replaces, how the roll-out works, and what's included for selected firms. If it looks like a fit, book a call from there.</p>
+    <h2 class="cta-h" style="font-size:28px;font-weight:800;color:#FFFFFF;letter-spacing:-0.6px;margin:0 0 14px;line-height:1.18;font-family:'Plus Jakarta Sans',Arial,sans-serif">See how SPM could fit your firm.</h2>
+    <p style="font-size:14.5px;line-height:1.75;color:#BFC4FF;margin:0 0 14px;font-family:'Plus Jakarta Sans',Arial,sans-serif">We&rsquo;re confident SPM will help the right firms run more efficiently, reduce double-handling and get better visibility across clients, jobs, staff and billing.</p>
+    <p style="font-size:14.5px;line-height:1.75;color:#BFC4FF;margin:0 0 26px;font-family:'Plus Jakarta Sans',Arial,sans-serif">If your firm is dealing with too many systems, manual follow-up or unclear job status, book a June discovery call and we can show you how the supported rollout would work.</p>
 
     <!-- CTA button row -->
     <table class="cta-buttons" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
       <td valign="middle" style="background-color:#FFFFFF;border-radius:12px;padding:14px 26px;mso-padding-alt:14px 26px">
-        <a href="https://eoi.soleapp.com.au" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#1E1B4B;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#1E1B4B"><![endif]-->Learn more &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
+        <a href="{{tidycal_link}}" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#1E1B4B;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#1E1B4B"><![endif]-->Book a June discovery call &nbsp;&rarr;<!--[if mso]></font><![endif]--></a>
       </td>
       <td valign="middle" style="padding-left:10px">
         <table border="0" cellpadding="0" cellspacing="0" role="presentation"><tr>
           <td valign="middle" style="background-color:rgba(255,255,255,0.06);border-radius:12px;border:1px solid #4D4DFF;padding:13px 24px;mso-padding-alt:13px 24px">
-            <a href="{{tidycal_link}}" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#FFFFFF;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#FFFFFF"><![endif]-->Book a discovery call<!--[if mso]></font><![endif]--></a>
+            <a href="https://eoi.soleapp.com.au" target="_blank" style="display:inline-block;font-size:14.5px;font-weight:700;color:#FFFFFF;letter-spacing:-0.1px;text-decoration:none;font-family:'Plus Jakarta Sans',Arial,sans-serif;white-space:nowrap"><!--[if mso]><font color="#FFFFFF"><![endif]-->View the pre-release page<!--[if mso]></font><![endif]--></a>
           </td>
         </tr></table>
       </td>
